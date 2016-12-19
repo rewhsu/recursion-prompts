@@ -57,10 +57,22 @@ var arraySum = function(array) {
 var isEven = function(n) {
   // Plan: keep subtracting two from the number; if it ends up on 0, return result; if it ends up on 1; return another result
   // If n is zero
+  if (n === 0) {
     // Return true
+    return true;
+  }
   // If n is one
+  if (n === 1) {
     // Return false
+    return false;
+  }
+  // If n is negative
+  if (n < 0) {
+    // Invoke isEven with n + 2
+    return isEven(n + 2);
+  }
   // Invoke isEven with n - 2
+  return isEven(n - 2);
 };
 
 // 5. Sum all integers below a given integer.
