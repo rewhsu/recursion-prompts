@@ -21,9 +21,16 @@ var factorial = function(n) {
 // sum([1,2,3,4,5,6]); // 21
 // ** sum([1,2,3]) = 1 + sum[2,3] = 1 + (2 + sum(3)) = 1 + 2 + 3;
 var sum = function(array) {
-  // If the array length has an item
-  // Splice first item's value
-  // Add first item to the sum of the rest of the array
+  // Base case: if empty array return 0
+  if(array.length === 0) {
+    return 0;
+  }
+  // Base case: when the remaining array is down to final element, return it
+  if(array.length === 1) {
+    return array[0];
+  }
+  // Recurse: Take the first number and add it to the sum of the remaining elements
+  return array[0] + sum(array.slice(1));
 };
 
 // 3. Sum all numbers in an array containing nested arrays.
