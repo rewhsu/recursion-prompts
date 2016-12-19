@@ -7,14 +7,19 @@
 // Example: 5! = 5 x 4 x 3 x 2 x 1 = 120
 // factorial(5); // 120
 var factorial = function(n) {
+  // Main mental model difference:
+  // Initial problem: need to store result, needs inner function or extra parameter.
+  // Solution: 5! = 5 * 4!
   if (n < 0) {
     return null;
   }
   if (n === 0 || n === 1) {
     return 1;
   }
-  var result = factorial(n - 1) * n;
-  return result;
+  // Create a closure with n = 4, first scope n = 5 is still in execution context and is waiting for factorial(n - 1) to return
+  // When program is done, it has n simultaneous functions waiting for a return, the inner-most only has 2 + 1 to return
+  // (5 * (4 * (3 * (2 * (1)))))
+  return n * factorial(n - 1);
 };
 
 // 2. Compute the sum of an array of integers.
