@@ -7,6 +7,27 @@
 // Example: 5! = 5 x 4 x 3 x 2 x 1 = 120
 // factorial(5); // 120
 var factorial = function(n) {
+  // Need to store result- create inner function
+  var result = 1;
+  var recurse = function(num) {
+    // If item is less than 0
+    if (num < 0) {
+      result = null;
+      return false;
+    }
+    // If item is 1
+    if (num === 1 || num === 0) {
+      // Return true
+      return true;
+    }
+    // Multiply result by item to get new result
+    result *= num;
+    // Recurse with item - 1 
+    recurse (num - 1);
+  }; 
+  // Invoke function
+  recurse(n);
+  return result;
 };
 
 // 2. Compute the sum of an array of integers.
