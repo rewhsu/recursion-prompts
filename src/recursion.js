@@ -55,6 +55,12 @@ var arraySum = function(array) {
 
 // 4. Check if a number is even.
 var isEven = function(n) {
+  // Plan: keep subtracting two from the number; if it ends up on 0, return result; if it ends up on 1; return another result
+  // If n is zero
+    // Return true
+  // If n is one
+    // Return false
+  // Invoke isEven with n - 2
 };
 
 // 5. Sum all integers below a given integer.
