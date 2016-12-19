@@ -80,14 +80,17 @@ var isEven = function(n) {
 // sumBelow(7); // 21
 var sumBelow = function(n) {
   // Plan: Sum n with the sum of the remaining integers
-  // If n < 0
-    // Remember n is negative and flip the sign
   // If n = 0
-    // If its negative
-      // Return -1
-    // Return 1
+  if (n === 0) {
+    // Return 0
+    return 0;
+  }
+  // If n < 0
+  if (n < 0) {
+    return n + 1 + sumBelow(n + 1);
+  }
   // Return the sum of the current number and the sum of the remaining integers
-  return n + sumBelow(n - 1);
+  return n - 1 + sumBelow(n - 1);
 };
 
 // 6. Get the integers within a range (x, y).
